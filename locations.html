@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Locations</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b"><h1 class="text-xl font-bold">MY SERVIS</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📊</span> Dashboard</a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">👥</span> Users</a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏢</span> Contractors</a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏷️</span> Categories</a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg bg-blue-600"><span class="mr-3">📍</span> Locations</a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">⭐</span> Reviews</a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📈</span> Reports</a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">💳</span> Subscriptions</a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🔔</span> Notifications</a>
+            </nav>
+        </aside>
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">Location Management</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="../" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+            <main class="flex-1 p-6">
+                <div class="grid lg-grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">States</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div><p class="font-medium text-gray-900">Johor</p><p class="text-sm text-gray-500">8 cities</p></div><a href="#" class="text-red-600 text-sm">Delete</a></div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div><p class="font-medium text-gray-900">Selangor</p><p class="text-sm text-gray-500">8 cities</p></div><a href="#" class="text-red-600 text-sm">Delete</a></div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div><p class="font-medium text-gray-900">Kuala Lumpur</p><p class="text-sm text-gray-500">7 cities</p></div><a href="#" class="text-red-600 text-sm">Delete</a></div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div><p class="font-medium text-gray-900">Sabah</p><p class="text-sm text-gray-500">6 cities</p></div><a href="#" class="text-red-600 text-sm">Delete</a></div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div><p class="font-medium text-gray-900">Sarawak</p><p class="text-sm text-gray-500">6 cities</p></div><a href="#" class="text-red-600 text-sm">Delete</a></div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div><p class="font-medium text-gray-900">Penang</p><p class="text-sm text-gray-500">4 cities</p></div><a href="#" class="text-red-600 text-sm">Delete</a></div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div><p class="font-medium text-gray-900">Pahang</p><p class="text-sm text-gray-500">4 cities</p></div><a href="#" class="text-red-600 text-sm">Delete</a></div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div><p class="font-medium text-gray-900">Perak</p><p class="text-sm text-gray-500">4 cities</p></div><a href="#" class="text-red-600 text-sm">Delete</a></div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Add State</h3>
+                            <div class="flex gap-2"><input type="text" placeholder="State name"><button class="btn btn-blue">Add</button></div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Add City</h3>
+                            <div class="space-y-4">
+                                <div><label class="block text-sm font-medium text-gray-700">State</label><select><option>Select state</option><option>Johor</option><option>Selangor</option><option>Kuala Lumpur</option><option>Sabah</option><option>Sarawak</option></select></div>
+                                <div><label class="block text-sm font-medium text-gray-700">City Name</label><input type="text"></div>
+                                <button class="w-full btn btn-blue">Add City</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

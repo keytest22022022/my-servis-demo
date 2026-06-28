@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b">
+                <h1 class="text-xl font-bold">MY SERVIS</h1>
+                <p class="text-gray-400 text-xs">Admin Panel</p>
+            </div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg bg-blue-600">
+                    <span class="mr-3">📊</span> Dashboard
+                </a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800">
+                    <span class="mr-3">👥</span> Users
+                </a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800">
+                    <span class="mr-3">🏢</span> Contractors
+                </a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800">
+                    <span class="mr-3">🏷️</span> Categories
+                </a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800">
+                    <span class="mr-3">📍</span> Locations
+                </a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800">
+                    <span class="mr-3">⭐</span> Reviews
+                </a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800">
+                    <span class="mr-3">📈</span> Reports
+                </a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800">
+                    <span class="mr-3">💳</span> Subscriptions
+                </a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800">
+                    <span class="mr-3">🔔</span> Notifications
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">Dashboard</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="../" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+
+            <main class="flex-1 p-6">
+                <!-- Stats Cards -->
+                <div class="grid lg-grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-center gap-3">
+                            <div class="p-3 bg-blue-100 rounded-full text-blue-600 text-xl">👥</div>
+                            <div>
+                                <p class="text-sm text-gray-500">Total Users</p>
+                                <p class="text-2xl font-bold text-gray-900">1,234</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-center gap-3">
+                            <div class="p-3 bg-green-100 rounded-full text-green-600 text-xl">🏢</div>
+                            <div>
+                                <p class="text-sm text-gray-500">Total Contractors</p>
+                                <p class="text-2xl font-bold text-gray-900">456</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-center gap-3">
+                            <div class="p-3 bg-yellow-100 rounded-full text-yellow-600 text-xl">⏳</div>
+                            <div>
+                                <p class="text-sm text-gray-500">Pending Approval</p>
+                                <p class="text-2xl font-bold text-gray-900">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-center gap-3">
+                            <div class="p-3 bg-purple-100 rounded-full text-purple-600 text-xl">⭐</div>
+                            <div>
+                                <p class="text-sm text-gray-500">Total Reviews</p>
+                                <p class="text-2xl font-bold text-gray-900">3,891</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid lg-grid-cols-2 gap-6 mb-8">
+                    <!-- Contractors by Category -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Contractors by Category</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Plumber</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:85%"></div></div>
+                                    <span class="text-sm font-medium text-gray-900">85</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Electrician</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:72%"></div></div>
+                                    <span class="text-sm font-medium text-gray-900">72</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Aircond Service</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:65%"></div></div>
+                                    <span class="text-sm font-medium text-gray-900">65</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Handyman</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:58%"></div></div>
+                                    <span class="text-sm font-medium text-gray-900">58</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Renovation</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:45%"></div></div>
+                                    <span class="text-sm font-medium text-gray-900">45</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Cleaning</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:38%"></div></div>
+                                    <span class="text-sm font-medium text-gray-900">38</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Contractors -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Recent Contractors</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p class="font-medium text-gray-900">Ahmad Plumbing Services</p>
+                                    <p class="text-sm text-gray-500">Plumber</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Approved</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p class="font-medium text-gray-900">Tan Electrical Works</p>
+                                    <p class="text-sm text-gray-500">Electrician</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p class="font-medium text-gray-900">CoolBreeze Aircond</p>
+                                    <p class="text-sm text-gray-500">Aircond Service</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Approved</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p class="font-medium text-gray-900">Ali Handyman Services</p>
+                                    <p class="text-sm text-gray-500">Handyman</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">Rejected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Trends -->
+                <div class="grid lg-grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Users Registered (Last 30 Days)</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-01</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:60%"></div></div>
+                                <span class="font-medium text-gray-900">12</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-02</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:80%"></div></div>
+                                <span class="font-medium text-gray-900">16</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-03</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:45%"></div></div>
+                                <span class="font-medium text-gray-900">9</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-04</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:100%"></div></div>
+                                <span class="font-medium text-gray-900">20</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-05</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:70%"></div></div>
+                                <span class="font-medium text-gray-900">14</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Contractors Registered (Last 30 Days)</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-01</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:50%"></div></div>
+                                <span class="font-medium text-gray-900">5</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-02</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:70%"></div></div>
+                                <span class="font-medium text-gray-900">7</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-03</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:30%"></div></div>
+                                <span class="font-medium text-gray-900">3</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-04</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:90%"></div></div>
+                                <span class="font-medium text-gray-900">9</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-20 text-gray-500">2026-06-05</span>
+                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:60%"></div></div>
+                                <span class="font-medium text-gray-900">6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

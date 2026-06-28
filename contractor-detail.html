@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Contractor Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b"><h1 class="text-xl font-bold">MY SERVIS</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📊</span> Dashboard</a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">👥</span> Users</a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg bg-blue-600"><span class="mr-3">🏢</span> Contractors</a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏷️</span> Categories</a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📍</span> Locations</a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">⭐</span> Reviews</a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📈</span> Reports</a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">💳</span> Subscriptions</a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🔔</span> Notifications</a>
+            </nav>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">Contractor Details</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="../" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+
+            <main class="flex-1 p-6">
+                <div class="w-full">
+                    <!-- Profile Info -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900">Ahmad Plumbing Services</h3>
+                                <p class="text-gray-500">Ahmad bin Abdullah</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="btn btn-green">Approve</button>
+                                <button class="btn btn-red">Reject</button>
+                                <button class="btn btn-blue">Verify</button>
+                            </div>
+                        </div>
+                        <dl class="grid grid-cols-2 gap-4">
+                            <div><dt class="text-sm text-gray-500">Phone</dt><dd class="font-medium text-gray-900">0123456789</dd></div>
+                            <div><dt class="text-sm text-gray-500">Email</dt><dd class="font-medium text-gray-900">ahmad@email.com</dd></div>
+                            <div><dt class="text-sm text-gray-500">Category</dt><dd class="font-medium text-gray-900">Plumber</dd></div>
+                            <div><dt class="text-sm text-gray-500">Years Experience</dt><dd class="font-medium text-gray-900">12</dd></div>
+                            <div><dt class="text-sm text-gray-500">Status</dt><dd><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Approved</span></dd></div>
+                            <div><dt class="text-sm text-gray-500">Verified</dt><dd class="font-medium text-gray-900">Yes</dd></div>
+                            <div class="col-span-2"><dt class="text-sm text-gray-500">Coverage Area</dt><dd class="font-medium text-gray-900">Kuala Lumpur, Selangor, Putrajaya</dd></div>
+                            <div class="col-span-2"><dt class="text-sm text-gray-500">Description</dt><dd class="text-gray-700">Professional plumbing services with 10+ years experience. Specializing in residential and commercial plumbing repairs, installations, and maintenance.</dd></div>
+                        </dl>
+                    </div>
+
+                    <!-- Reviews -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Reviews (3)</h3>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <span class="text-yellow-500">★★★★★</span>
+                                    <span class="font-medium text-gray-900">5</span>
+                                    <span class="text-sm text-gray-500">by Siti Aminah</span>
+                                </div>
+                                <p class="text-gray-600">Excellent service! Very professional and punctual.</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <span class="text-yellow-500">★★★★☆</span>
+                                    <span class="font-medium text-gray-900">4</span>
+                                    <span class="text-sm text-gray-500">by John Lee</span>
+                                </div>
+                                <p class="text-gray-600">Good work, reasonable prices.</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <span class="text-yellow-500">★★★★★</span>
+                                    <span class="font-medium text-gray-900">5</span>
+                                    <span class="text-sm text-gray-500">by Priya Nair</span>
+                                </div>
+                                <p class="text-gray-600">Highly recommended. Fixed the issue quickly.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leads -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Leads (4)</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div><p class="font-medium text-gray-900">Chen Wei</p><p class="text-sm text-gray-500">0134567890</p></div>
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">New</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div><p class="font-medium text-gray-900">Muhammad Faisal</p><p class="text-sm text-gray-500">0167890123</p></div>
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Contacted</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div><p class="font-medium text-gray-900">Lim Siew Ling</p><p class="text-sm text-gray-500">0123456793</p></div>
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Converted</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div><p class="font-medium text-gray-900">Ali Hassan</p><p class="text-sm text-gray-500">0123456792</p></div>
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800">Closed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6"><a href="contractors.html" class="text-blue-600">← Back to Contractors</a></div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

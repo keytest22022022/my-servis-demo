@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Notifications</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b"><h1 class="text-xl font-bold">MY SERVIS</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📊</span> Dashboard</a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">👥</span> Users</a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏢</span> Contractors</a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏷️</span> Categories</a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📍</span> Locations</a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">⭐</span> Reviews</a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📈</span> Reports</a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">💳</span> Subscriptions</a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg bg-blue-600"><span class="mr-3">🔔</span> Notifications</a>
+            </nav>
+        </aside>
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">Push Notifications & Settings</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="../" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+            <main class="flex-1 p-6">
+                <div class="grid lg-grid-cols-2 gap-6">
+                    <!-- Send Notification -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Send Push Notification</h3>
+                        <p class="text-sm text-gray-500 mb-4">Send a push notification to all 1,234 users.</p>
+                        <div class="space-y-4">
+                            <div><label class="block text-sm font-medium text-gray-700">Title</label><input type="text"></div>
+                            <div><label class="block text-sm font-medium text-gray-700">Message</label><textarea rows="4"></textarea></div>
+                            <button class="w-full btn btn-blue">Send Notification</button>
+                        </div>
+                    </div>
+
+                    <!-- Settings -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Notification Settings</h3>
+                            <div class="space-y-4">
+                                <label class="flex items-center justify-between"><span class="text-gray-700">New Lead Notifications</span><input type="checkbox" checked></label>
+                                <label class="flex items-center justify-between"><span class="text-gray-700">New Review Notifications</span><input type="checkbox" checked></label>
+                                <label class="flex items-center justify-between"><span class="text-gray-700">Contractor Registration Alerts</span><input type="checkbox" checked></label>
+                                <label class="flex items-center justify-between"><span class="text-gray-700">Daily Summary Email</span><input type="checkbox"></label>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Platform Settings</h3>
+                            <div class="space-y-4">
+                                <div><label class="block text-sm font-medium text-gray-700">Platform Name</label><input type="text" value="MY SERVIS"></div>
+                                <div><label class="block text-sm font-medium text-gray-700">Support Email</label><input type="email" value="support@myservis.com"></div>
+                                <button class="w-full btn btn-gray">Save Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

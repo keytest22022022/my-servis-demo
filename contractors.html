@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Contractors</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b"><h1 class="text-xl font-bold">MY SERVIS</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📊</span> Dashboard</a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">👥</span> Users</a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg bg-blue-600"><span class="mr-3">🏢</span> Contractors</a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏷️</span> Categories</a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📍</span> Locations</a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">⭐</span> Reviews</a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📈</span> Reports</a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">💳</span> Subscriptions</a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🔔</span> Notifications</a>
+            </nav>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">Contractor Management</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="../" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+
+            <main class="flex-1 p-6">
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Filters</h3>
+                        <button class="text-sm text-gray-500 hover-text-red-700">Clear All</button>
+                    </div>
+                    <div class="flex flex-wrap items-end gap-6">
+                        <div class="flex-1 min-w-64">
+                            <label class="block text-xs font-medium text-gray-500 mb-1">Search</label>
+                            <div class="relative">
+                                <input type="text" placeholder="Business or owner name..." class="pl-9">
+                            </div>
+                        </div>
+                        <div class="w-48">
+                            <label class="block text-xs font-medium text-gray-500 mb-1">Status</label>
+                            <select><option value="">All Status</option><option>Pending</option><option>Approved</option><option>Rejected</option></select>
+                        </div>
+                        <div class="w-48">
+                            <label class="block text-xs font-medium text-gray-500 mb-1">Category</label>
+                            <select><option value="">All Categories</option><option>Plumber</option><option>Electrician</option><option>Aircond Service</option><option>Handyman</option><option>Renovation</option></select>
+                        </div>
+                        <button class="btn btn-blue">Apply Filters</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <table>
+                        <thead>
+                            <tr><th>Business</th><th>Owner</th><th>Category</th><th>Status</th><th>Verified</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">Ahmad Plumbing Services</div><div class="text-sm text-gray-500">0123456789</div></td>
+                                <td class="text-sm text-gray-600">Ahmad bin Abdullah</td>
+                                <td class="text-sm text-gray-600">Plumber</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Approved</span></td>
+                                <td class="text-green-600">✓</td>
+                                <td class="text-sm space-x-2"><a href="contractor-detail.html" class="text-blue-600">View</a></td>
+                            </tr>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">Tan Electrical Works</div><div class="text-sm text-gray-500">0123456790</div></td>
+                                <td class="text-sm text-gray-600">Tan Wei Ming</td>
+                                <td class="text-sm text-gray-600">Electrician</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Approved</span></td>
+                                <td class="text-green-600">✓</td>
+                                <td class="text-sm space-x-2"><a href="contractor-detail.html" class="text-blue-600">View</a></td>
+                            </tr>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">CoolBreeze Aircond</div><div class="text-sm text-gray-500">0123456791</div></td>
+                                <td class="text-sm text-gray-600">Raj Kumar</td>
+                                <td class="text-sm text-gray-600">Aircond Service</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Pending</span></td>
+                                <td class="text-gray-400">✗</td>
+                                <td class="text-sm space-x-2">
+                                    <a href="contractor-detail.html" class="text-blue-600">View</a>
+                                    <a href="#" class="text-green-600">Approve</a>
+                                    <a href="#" class="text-red-600">Reject</a>
+                                </td>
+                            </tr>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">Ali Handyman Services</div><div class="text-sm text-gray-500">0123456792</div></td>
+                                <td class="text-sm text-gray-600">Ali Hassan</td>
+                                <td class="text-sm text-gray-600">Handyman</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Approved</span></td>
+                                <td class="text-gray-400">✗</td>
+                                <td class="text-sm space-x-2"><a href="contractor-detail.html" class="text-blue-600">View</a> <a href="#" class="text-blue-600">Verify</a></td>
+                            </tr>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">Melaka Renovation Co</div><div class="text-sm text-gray-500">0123456793</div></td>
+                                <td class="text-sm text-gray-600">Lim Siew Ling</td>
+                                <td class="text-sm text-gray-600">Renovation</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Approved</span></td>
+                                <td class="text-green-600">✓</td>
+                                <td class="text-sm space-x-2"><a href="contractor-detail.html" class="text-blue-600">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

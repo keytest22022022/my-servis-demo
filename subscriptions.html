@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Subscriptions</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b"><h1 class="text-xl font-bold">MY SERVIS</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📊</span> Dashboard</a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">👥</span> Users</a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏢</span> Contractors</a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏷️</span> Categories</a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📍</span> Locations</a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">⭐</span> Reviews</a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📈</span> Reports</a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg bg-blue-600"><span class="mr-3">💳</span> Subscriptions</a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🔔</span> Notifications</a>
+            </nav>
+        </aside>
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">Subscription Management</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="../" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+            <main class="flex-1 p-6">
+                <p class="text-gray-600 mb-6">Manage subscription plans and pricing for contractors.</p>
+
+                <div class="grid lg-grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Free</h3>
+                        <p class="text-2xl font-bold text-blue-600 my-3">RM 0</p>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                            <li>✓ Basic listing</li>
+                            <li>✓ 5 leads/month</li>
+                            <li>✓ Standard support</li>
+                        </ul>
+                        <button class="w-full btn" style="border:1px solid #d1d5db;color:#374151">Edit Plan</button>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Basic</h3>
+                        <p class="text-2xl font-bold text-blue-600 my-3">RM 49/month</p>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                            <li>✓ Featured listing</li>
+                            <li>✓ 25 leads/month</li>
+                            <li>✓ Priority support</li>
+                            <li>✓ Analytics dashboard</li>
+                        </ul>
+                        <button class="w-full btn" style="border:1px solid #d1d5db;color:#374151">Edit Plan</button>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-6" style="border:2px solid #3b82f6">
+                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded mb-3">Most Popular</span>
+                        <h3 class="text-xl font-bold text-gray-900">Premium</h3>
+                        <p class="text-2xl font-bold text-blue-600 my-3">RM 149/month</p>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                            <li>✓ Top placement</li>
+                            <li>✓ Unlimited leads</li>
+                            <li>✓ Dedicated support</li>
+                            <li>✓ Advanced analytics</li>
+                            <li>✓ Promotional tools</li>
+                        </ul>
+                        <button class="w-full btn" style="border:1px solid #d1d5db;color:#374151">Edit Plan</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Active Subscriptions</h3>
+                    <p class="text-gray-500 text-center py-8">Subscription management coming soon. This will show all active contractor subscriptions, billing history, and allow plan changes.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

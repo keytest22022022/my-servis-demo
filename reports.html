@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Reports</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b"><h1 class="text-xl font-bold">MY SERVIS</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📊</span> Dashboard</a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">👥</span> Users</a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏢</span> Contractors</a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏷️</span> Categories</a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📍</span> Locations</a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">⭐</span> Reviews</a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg bg-blue-600"><span class="mr-3">📈</span> Reports</a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">💳</span> Subscriptions</a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🔔</span> Notifications</a>
+            </nav>
+        </aside>
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">Reports & Analytics</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="../" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+            <main class="flex-1 p-6">
+                <!-- Summary Stats -->
+                <div class="grid lg-grid-cols-5 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center"><p class="text-3xl font-bold text-blue-600">1,234</p><p class="text-sm text-gray-500">Total Users</p></div>
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center"><p class="text-3xl font-bold text-green-600">456</p><p class="text-sm text-gray-500">Contractors</p></div>
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center"><p class="text-3xl font-bold text-purple-600">3,891</p><p class="text-sm text-gray-500">Reviews</p></div>
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center"><p class="text-3xl font-bold text-orange-600">892</p><p class="text-sm text-gray-500">Leads</p></div>
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center"><p class="text-3xl font-bold text-yellow-600">4.6</p><p class="text-sm text-gray-500">Avg Rating</p></div>
+                </div>
+
+                <div class="grid lg-grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Users Registered (Monthly)</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-01</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:40%"></div></div><span class="font-medium text-gray-900">45</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-02</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:55%"></div></div><span class="font-medium text-gray-900">62</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-03</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:70%"></div></div><span class="font-medium text-gray-900">78</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-04</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:85%"></div></div><span class="font-medium text-gray-900">95</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-05</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:100%"></div></div><span class="font-medium text-gray-900">112</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-06</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:90%"></div></div><span class="font-medium text-gray-900">101</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Contractors Registered (Monthly)</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-01</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:30%"></div></div><span class="font-medium text-gray-900">18</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-02</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:45%"></div></div><span class="font-medium text-gray-900">27</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-03</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:60%"></div></div><span class="font-medium text-gray-900">36</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-04</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:75%"></div></div><span class="font-medium text-gray-900">45</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-05</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:90%"></div></div><span class="font-medium text-gray-900">54</span></div>
+                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-06</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:80%"></div></div><span class="font-medium text-gray-900">48</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Contractors -->
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Top Contractors by Reviews</h3>
+                    <table>
+                        <thead><tr><th>#</th><th>Business</th><th>Category</th><th>Reviews</th><th>Rating</th></tr></thead>
+                        <tbody>
+                            <tr><td class="text-sm text-gray-500">1</td><td class="text-sm font-medium text-gray-900">Ahmad Plumbing Services</td><td class="text-sm text-gray-600">Plumber</td><td class="text-sm text-gray-600">45</td><td class="text-sm text-yellow-500">★ 4.8</td></tr>
+                            <tr><td class="text-sm text-gray-500">2</td><td class="text-sm font-medium text-gray-900">Tan Electrical Works</td><td class="text-sm text-gray-600">Electrician</td><td class="text-sm text-gray-600">38</td><td class="text-sm text-yellow-500">★ 4.7</td></tr>
+                            <tr><td class="text-sm text-gray-500">3</td><td class="text-sm font-medium text-gray-900">CoolBreeze Aircond</td><td class="text-sm text-gray-600">Aircond Service</td><td class="text-sm text-gray-600">32</td><td class="text-sm text-yellow-500">★ 4.6</td></tr>
+                            <tr><td class="text-sm text-gray-500">4</td><td class="text-sm font-medium text-gray-900">Ali Handyman Services</td><td class="text-sm text-gray-600">Handyman</td><td class="text-sm text-gray-600">28</td><td class="text-sm text-yellow-500">★ 4.5</td></tr>
+                            <tr><td class="text-sm text-gray-500">5</td><td class="text-sm font-medium text-gray-900">Melaka Renovation Co</td><td class="text-sm text-gray-600">Renovation</td><td class="text-sm text-gray-600">25</td><td class="text-sm text-yellow-500">★ 4.9</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

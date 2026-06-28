@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Users</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b">
+                <h1 class="text-xl font-bold">MY SERVIS</h1>
+                <p class="text-gray-400 text-xs">Admin Panel</p>
+            </div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📊</span> Dashboard</a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg bg-blue-600"><span class="mr-3">👥</span> Users</a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏢</span> Contractors</a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏷️</span> Categories</a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📍</span> Locations</a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">⭐</span> Reviews</a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📈</span> Reports</a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">💳</span> Subscriptions</a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🔔</span> Notifications</a>
+            </nav>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">User Management</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="../" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+
+            <main class="flex-1 p-6">
+                <!-- Filter -->
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Filters</h3>
+                        <button class="text-sm text-gray-500 hover-text-red-700">Clear All</button>
+                    </div>
+                    <div class="flex flex-wrap items-end gap-6">
+                        <div class="flex-1 min-w-64">
+                            <label class="block text-xs font-medium text-gray-500 mb-1">Search</label>
+                            <div class="relative">
+                                <input type="text" placeholder="Name or email..." class="pl-9">
+                            </div>
+                        </div>
+                        <div class="w-48">
+                            <label class="block text-xs font-medium text-gray-500 mb-1">User Mode</label>
+                            <select><option value="">All Modes</option><option>Customer</option><option>Contractor</option></select>
+                        </div>
+                        <button class="btn btn-blue">Apply Filters</button>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Mode</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">Siti Aminah</div><div class="text-sm text-gray-500">siti@email.com</div></td>
+                                <td class="text-sm text-gray-600">0123456789</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">Customer</span></td>
+                                <td class="text-sm text-gray-500">15 Jun 2026</td>
+                                <td class="text-sm space-x-2"><a href="#" class="text-blue-600">View</a> <a href="#" class="text-red-600">Delete</a></td>
+                            </tr>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">John Lee</div><div class="text-sm text-gray-500">john@email.com</div></td>
+                                <td class="text-sm text-gray-600">0198765432</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Contractor</span></td>
+                                <td class="text-sm text-gray-500">14 Jun 2026</td>
+                                <td class="text-sm space-x-2"><a href="#" class="text-blue-600">View</a> <a href="#" class="text-red-600">Delete</a></td>
+                            </tr>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">Priya Nair</div><div class="text-sm text-gray-500">priya@email.com</div></td>
+                                <td class="text-sm text-gray-600">0112233445</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">Customer</span></td>
+                                <td class="text-sm text-gray-500">13 Jun 2026</td>
+                                <td class="text-sm space-x-2"><a href="#" class="text-blue-600">View</a> <a href="#" class="text-red-600">Delete</a></td>
+                            </tr>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">Muhammad Faisal</div><div class="text-sm text-gray-500">faisal@email.com</div></td>
+                                <td class="text-sm text-gray-600">0167890123</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Contractor</span></td>
+                                <td class="text-sm text-gray-500">12 Jun 2026</td>
+                                <td class="text-sm space-x-2"><a href="#" class="text-blue-600">View</a> <a href="#" class="text-red-600">Delete</a></td>
+                            </tr>
+                            <tr class="hover-bg-50">
+                                <td><div class="font-medium text-gray-900">Chen Wei</div><div class="text-sm text-gray-500">chen@email.com</div></td>
+                                <td class="text-sm text-gray-600">0134567890</td>
+                                <td><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">Customer</span></td>
+                                <td class="text-sm text-gray-500">11 Jun 2026</td>
+                                <td class="text-sm space-x-2"><a href="#" class="text-blue-600">View</a> <a href="#" class="text-red-600">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

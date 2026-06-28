@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY SERVIS Admin - Add Contractor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .form-section { margin-bottom: 2rem; }
+        .form-section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 1.25rem;
+        }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.375rem;
+        }
+        .form-label .required { color: #dc2626; }
+        .form-hint { font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem; }
+        .form-input, .form-select, .form-textarea {
+            display: block;
+            width: 100%;
+            padding: 0.625rem 0.875rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #111827;
+            background: #f9fafb;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+            background: #fff;
+        }
+        .form-textarea { resize: vertical; min-height: 5rem; }
+        .upload-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            background: #f9fafb;
+        }
+        .upload-zone:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .upload-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .upload-text { font-size: 0.875rem; color: #6b7280; }
+        .upload-text strong { color: #2563eb; }
+        .upload-hint { font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem; }
+        .coverage-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .coverage-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.25rem 0.75rem;
+            background: #eff6ff;
+            color: #1d4ed8;
+            border-radius: 9999px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+        .coverage-tag button {
+            background: none;
+            border: none;
+            color: #1d4ed8;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+            padding: 0;
+        }
+        .coverage-tag button:hover { color: #dc2626; }
+        .coverage-input-row { display: flex; gap: 0.5rem; }
+        .coverage-input-row input { flex: 1; }
+        .btn-add-tag {
+            padding: 0.625rem 1rem;
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn-add-tag:hover { background: #e5e7eb; }
+        .verification-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .verification-card:hover { border-color: #93c5fd; background: #f8fafc; }
+        .verification-icon {
+            width: 3rem;
+            height: 3rem;
+            background: #f3f4f6;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        .verification-info { flex: 1; }
+        .verification-title { font-size: 0.875rem; font-weight: 500; color: #111827; }
+        .verification-desc { font-size: 0.75rem; color: #6b7280; margin-top: 0.125rem; }
+        .btn-upload-sm {
+            padding: 0.375rem 0.875rem;
+            background: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #374151;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn-upload-sm:hover { background: #f9fafb; border-color: #9ca3af; }
+
+        /* Dark mode for contractor-add page */
+        body.dark .form-section-title { color: #cbd5e1; border-bottom-color: #334155; }
+        body.dark .form-label { color: #cbd5e1; }
+        body.dark .form-input, body.dark .form-select, body.dark .form-textarea {
+            background: #0f172a;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        body.dark .form-input:focus, body.dark .form-select:focus, body.dark .form-textarea:focus {
+            background: #0f172a;
+            border-color: #3b82f6;
+        }
+        body.dark .upload-zone {
+            background: #0f172a;
+            border-color: #334155;
+        }
+        body.dark .upload-zone:hover {
+            background: #1e293b;
+            border-color: #3b82f6;
+        }
+        body.dark .upload-text { color: #94a3b8; }
+        body.dark .coverage-tag { background: #1e3a5f; color: #93c5fd; }
+        body.dark .coverage-tag button { color: #93c5fd; }
+        body.dark .coverage-tag button:hover { color: #f87171; }
+        body.dark .btn-add-tag {
+            background: #1e293b;
+            border-color: #334155;
+            color: #cbd5e1;
+        }
+        body.dark .btn-add-tag:hover { background: #334155; }
+        body.dark .verification-card {
+            border-color: #334155;
+            background: #1e293b;
+        }
+        body.dark .verification-card:hover { border-color: #3b82f6; background: #1e293b; }
+        body.dark .verification-icon { background: #0f172a; }
+        body.dark .verification-title { color: #e2e8f0; }
+        body.dark .verification-desc { color: #64748b; }
+        body.dark .btn-upload-sm {
+            background: #0f172a;
+            border-color: #334155;
+            color: #cbd5e1;
+        }
+        body.dark .btn-upload-sm:hover { background: #334155; border-color: #475569; }
+    </style>
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <div class="p-4 border-b">
+                <h1 class="text-xl font-bold">MY SERVIS</h1>
+                <p class="text-gray-400 text-xs">Admin Panel</p>
+            </div>
+            <nav class="p-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📊</span> Dashboard</a>
+                <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">👥</span> Users</a>
+                <a href="contractors.html" class="block px-3 py-2 rounded-lg bg-blue-600"><span class="mr-3">🏢</span> Contractors</a>
+                <a href="categories.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🏷️</span> Categories</a>
+                <a href="locations.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📍</span> Locations</a>
+                <a href="reviews.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">⭐</span> Reviews</a>
+                <a href="reports.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">📈</span> Reports</a>
+                <a href="subscriptions.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">💳</span> Subscriptions</a>
+                <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3">🔔</span> Notifications</a>
+            </nav>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+                <h2 class="text-lg font-semibold text-gray-800">Add New Contractor</h2>
+                <div class="header-actions flex items-center gap-3">
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
+                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    </div>
+                    <a href="login.html" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
+                </div>
+            </header>
+
+            <main class="flex-1 p-6">
+                <div class="max-w-4xl">
+                    <!-- Back link -->
+                    <div class="mb-6">
+                        <a href="contractors.html" class="text-sm text-blue-600 hover:text-blue-700">← Back to Contractors</a>
+                    </div>
+
+                    <form>
+                        <!-- Business Information -->
+                        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                            <div class="form-section-title">Business Information</div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Business Name <span class="required">*</span></label>
+                                    <input type="text" class="form-input" placeholder="e.g. Ahmad Plumbing Services" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Owner Name <span class="required">*</span></label>
+                                    <input type="text" class="form-input" placeholder="e.g. Ahmad bin Abdullah" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number <span class="required">*</span></label>
+                                    <input type="tel" class="form-input" placeholder="e.g. 0123456789" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email <span class="required">*</span></label>
+                                    <input type="email" class="form-input" placeholder="e.g. ahmad@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Service Category <span class="required">*</span></label>
+                                    <select class="form-select" required>
+                                        <option value="">Select category</option>
+                                        <option>Plumber</option>
+                                        <option>Electrician</option>
+                                        <option>Aircond Service</option>
+                                        <option>Handyman</option>
+                                        <option>Renovation</option>
+                                        <option>Cleaning</option>
+                                        <option>Movers</option>
+                                        <option>CCTV Installation</option>
+                                        <option>Landscaping</option>
+                                        <option>Commercial Maintenance</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Years of Experience</label>
+                                    <input type="number" class="form-input" placeholder="e.g. 5" min="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Business Description</label>
+                                <textarea class="form-textarea" placeholder="Describe the business services, specializations, and any other relevant details..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Coverage Area -->
+                        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                            <div class="form-section-title">Coverage Area</div>
+                            <p class="text-sm text-gray-500 mb-3">Add the areas where this contractor provides services.</p>
+                            <div class="coverage-input-row">
+                                <input type="text" id="coverageInput" class="form-input" placeholder="Type area name and click Add">
+                                <button type="button" class="btn-add-tag" onclick="addCoverage()">+ Add</button>
+                            </div>
+                            <div class="coverage-tags" id="coverageTags">
+                                <span class="coverage-tag">Kuala Lumpur <button type="button" onclick="this.parentElement.remove()">×</button></span>
+                                <span class="coverage-tag">Selangor <button type="button" onclick="this.parentElement.remove()">×</button></span>
+                                <span class="coverage-tag">Putrajaya <button type="button" onclick="this.parentElement.remove()">×</button></span>
+                            </div>
+                        </div>
+
+                        <!-- Photos -->
+                        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                            <div class="form-section-title">Photos</div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Profile Photo</label>
+                                    <div class="upload-zone" onclick="document.getElementById('profilePhoto').click()">
+                                        <div class="upload-icon">📷</div>
+                                        <div class="upload-text"><strong>Click to upload</strong> or drag and drop</div>
+                                        <div class="upload-hint">PNG, JPG up to 5MB</div>
+                                    </div>
+                                    <input type="file" id="profilePhoto" accept="image/*" hidden>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Portfolio Photos</label>
+                                    <div class="upload-zone" onclick="document.getElementById('portfolioPhotos').click()">
+                                        <div class="upload-icon">🖼️</div>
+                                        <div class="upload-text"><strong>Click to upload</strong> or drag and drop</div>
+                                        <div class="upload-hint">PNG, JPG up to 5MB each (max 10)</div>
+                                    </div>
+                                    <input type="file" id="portfolioPhotos" accept="image/*" multiple hidden>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Verification Documents -->
+                        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                            <div class="form-section-title">Verification Documents <span style="color:#9ca3af;text-transform:none;letter-spacing:normal;font-weight:400">(Optional)</span></div>
+                            <p class="text-sm text-gray-500 mb-4">Upload documents to speed up the verification process.</p>
+                            <div class="space-y-3">
+                                <div class="verification-card">
+                                    <div class="verification-icon">📋</div>
+                                    <div class="verification-info">
+                                        <div class="verification-title">SSM Registration</div>
+                                        <div class="verification-desc">Business registration certificate from SSM</div>
+                                    </div>
+                                    <button type="button" class="btn-upload-sm" onclick="document.getElementById('ssmFile').click()">Upload File</button>
+                                    <input type="file" id="ssmFile" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                                </div>
+                                <div class="verification-card">
+                                    <div class="verification-icon">🏗️</div>
+                                    <div class="verification-info">
+                                        <div class="verification-title">CIDB Registration</div>
+                                        <div class="verification-desc">Construction Industry Development Board certificate</div>
+                                    </div>
+                                    <button type="button" class="btn-upload-sm" onclick="document.getElementById('cidbFile').click()">Upload File</button>
+                                    <input type="file" id="cidbFile" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                                </div>
+                                <div class="verification-card">
+                                    <div class="verification-icon">🛡️</div>
+                                    <div class="verification-info">
+                                        <div class="verification-title">Insurance Certificate</div>
+                                        <div class="verification-desc">Active insurance coverage document</div>
+                                    </div>
+                                    <button type="button" class="btn-upload-sm" onclick="document.getElementById('insuranceFile').click()">Upload File</button>
+                                    <input type="file" id="insuranceFile" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="flex items-center justify-between">
+                            <a href="contractors.html" class="text-sm text-gray-500 hover:text-gray-700">Cancel</a>
+                            <button type="submit" class="btn btn-blue px-8 py-2.5" style="font-size:0.9375rem" onclick="window.location.href='contractors.html'; return false;">
+                                Register My Business
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function addCoverage() {
+            const input = document.getElementById('coverageInput');
+            const value = input.value.trim();
+            if (!value) return;
+
+            const tags = document.getElementById('coverageTags');
+            const tag = document.createElement('span');
+            tag.className = 'coverage-tag';
+            tag.innerHTML = value + ' <button type="button" onclick="this.parentElement.remove()">×</button>';
+            tags.appendChild(tag);
+            input.value = '';
+        }
+
+        document.getElementById('coverageInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') { e.preventDefault(); addCoverage(); }
+        });
+
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark');
+            const isDark = body.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.querySelector('.theme-toggle').textContent = isDark ? '☀️' : '🌙';
+        }
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.body.classList.add('dark');
+                const btn = document.querySelector('.theme-toggle');
+                if (btn) btn.textContent = '☀️';
+            }
+        })();
+    </script>
+</body>
+</html>

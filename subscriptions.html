@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MY SERVIS Admin - Subscriptions</title>
+    <title>BlueTreex Admin - Subscriptions</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -11,7 +11,7 @@
 <body>
     <div class="flex min-h-screen">
         <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
-            <div class="p-4 border-b"><h1 class="text-xl font-bold">MY SERVIS</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
+            <div class="p-4 border-b"><h1 class="text-xl font-bold">BlueTreex</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
             <nav class="p-4 space-y-1">
                 <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3"><i class="fas fa-chart-line"></i></span> Dashboard</a>
                 <a href="users.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3"><i class="fas fa-users"></i></span> Users</a>
@@ -29,11 +29,16 @@
                 <h2 class="text-lg font-semibold text-gray-800">Subscription Management</h2>
                 <div class="header-actions flex items-center gap-3">
                     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
-                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
-                        <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
-                        <span class="text-sm font-medium text-gray-700">Admin</span>
+                    <div class="user-dropdown">
+                        <button onclick="toggleUserMenu()" class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg cursor-pointer">
+                            <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">A</span>
+                            <span class="text-sm font-medium text-gray-700">Admin</span>
+                            <i class="fas fa-chevron-down text-xs text-gray-400"></i>
+                        </button>
+                        <div id="userMenu" class="user-dropdown-menu">
+                            <a href="login.html" class="signout"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                        </div>
                     </div>
-                    <a href="login.html" class="text-sm font-medium text-red-600 px-3 py-1.5 rounded-lg hover-bg-gray-800 hover:text-white transition-colors">Logout</a>
                 </div>
             </header>
             <main class="flex-1 p-6">
@@ -84,7 +89,7 @@
         </div>
     </div>
     <script>
-        function toggleTheme() {
+        function toggleUserMenu() { var menu = document.getElementById('userMenu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; } document.addEventListener('click', function(e) { if (!e.target.closest('.user-dropdown')) { var menu = document.getElementById('userMenu'); if (menu) menu.style.display = 'none'; } }); function toggleTheme() {
             const body = document.body;
             body.classList.toggle('dark');
             const isDark = body.classList.contains('dark');

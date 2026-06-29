@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -187,7 +187,7 @@
 <body>
     <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+        <aside class="sidebar w-64 bg-gray-900 text-white flex-shrink-0">
             <div class="p-4 border-b">
                 <h1 class="text-xl font-bold">BlueTreex</h1>
                 <p class="text-gray-400 text-xs">Admin Panel</p>
@@ -204,10 +204,12 @@
                 <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3"><i class="fas fa-bell"></i></span> Notifications</a>
             </nav>
         </aside>
+        <div class="sidebar-overlay" onclick="closeSidebar()"></div>
 
         <div class="flex-1 flex flex-col">
             <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
-                <h2 class="text-lg font-semibold text-gray-800">Add New Contractor</h2>
+                <button class="menu-toggle text-gray-600 hover:text-gray-900" onclick="toggleSidebar()"><i class="fas fa-bars text-lg"></i></button>
+                
                 <div class="header-actions flex items-center gap-3">
                     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
                     <div class="user-dropdown">
@@ -224,6 +226,7 @@
             </header>
 
             <main class="flex-1 p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-6">Add New Contractor</h2>
                 <div class="w-full">
                     <!-- Back link -->
                     <div class="mb-6">
@@ -384,7 +387,7 @@
             if (e.key === 'Enter') { e.preventDefault(); addCoverage(); }
         });
 
-        function toggleUserMenu() { var menu = document.getElementById('userMenu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; } document.addEventListener('click', function(e) { if (!e.target.closest('.user-dropdown')) { var menu = document.getElementById('userMenu'); if (menu) menu.style.display = 'none'; } }); function toggleTheme() {
+        function toggleUserMenu() { var menu = document.getElementById('userMenu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; } document.addEventListener('click', function(e) { if (!e.target.closest('.user-dropdown')) { var menu = document.getElementById('userMenu'); if (menu) menu.style.display = 'none'; } }); function toggleSidebar() { var sb = document.querySelector('.sidebar'); sb.classList.toggle('open'); var ov = document.querySelector('.sidebar-overlay'); if (ov) ov.classList.toggle('active'); } function closeSidebar() { var sb = document.querySelector('.sidebar'); sb.classList.remove('open'); var ov = document.querySelector('.sidebar-overlay'); if (ov) ov.classList.remove('active'); } function toggleTheme() {
             const body = document.body;
             body.classList.toggle('dark');
             const isDark = body.classList.contains('dark');

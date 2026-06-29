@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <div class="flex min-h-screen">
-        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+        <aside class="sidebar w-64 bg-gray-900 text-white flex-shrink-0">
             <div class="p-4 border-b"><h1 class="text-xl font-bold">BlueTreex</h1><p class="text-gray-400 text-xs">Admin Panel</p></div>
             <nav class="p-4 space-y-1">
                 <a href="index.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3"><i class="fas fa-chart-line"></i></span> Dashboard</a>
@@ -24,9 +25,11 @@
                 <a href="notifications.html" class="block px-3 py-2 rounded-lg hover-bg-gray-800"><span class="mr-3"><i class="fas fa-bell"></i></span> Notifications</a>
             </nav>
         </aside>
+        <div class="sidebar-overlay" onclick="closeSidebar()"></div>
         <div class="flex-1 flex flex-col">
             <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
-                <h2 class="text-lg font-semibold text-gray-800">Reports & Analytics</h2>
+                <button class="menu-toggle text-gray-600 hover:text-gray-900" onclick="toggleSidebar()"><i class="fas fa-bars text-lg"></i></button>
+                
                 <div class="header-actions flex items-center gap-3">
                     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
                     <div class="user-dropdown">
@@ -42,6 +45,7 @@
                 </div>
             </header>
             <main class="flex-1 p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-6">Reports & Analytics</h2>
                 <!-- Summary Stats -->
                 <div class="grid lg-grid-cols-5 gap-6 mb-8">
                     <div class="bg-white rounded-lg shadow-sm p-6 text-center"><p class="text-3xl font-bold text-blue-600">1,234</p><p class="text-sm text-gray-500">Total Users</p></div>
@@ -54,25 +58,22 @@
                 <div class="grid lg-grid-cols-2 gap-6 mb-8">
                     <div class="bg-white rounded-lg shadow-sm p-6">
                         <h3 class="text-lg font-semibold text-gray-900 mb-4">Users Registered (Monthly)</h3>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-01</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:40%"></div></div><span class="font-medium text-gray-900">45</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-02</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:55%"></div></div><span class="font-medium text-gray-900">62</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-03</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:70%"></div></div><span class="font-medium text-gray-900">78</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-04</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:85%"></div></div><span class="font-medium text-gray-900">95</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-05</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:100%"></div></div><span class="font-medium text-gray-900">112</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-06</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:90%"></div></div><span class="font-medium text-gray-900">101</span></div>
-                        </div>
+                        <div style="height: 280px;"><canvas id="reportUsersChart"></canvas></div>
                     </div>
                     <div class="bg-white rounded-lg shadow-sm p-6">
                         <h3 class="text-lg font-semibold text-gray-900 mb-4">Contractors Registered (Monthly)</h3>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-01</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:30%"></div></div><span class="font-medium text-gray-900">18</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-02</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:45%"></div></div><span class="font-medium text-gray-900">27</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-03</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:60%"></div></div><span class="font-medium text-gray-900">36</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-04</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:75%"></div></div><span class="font-medium text-gray-900">45</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-05</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:90%"></div></div><span class="font-medium text-gray-900">54</span></div>
-                            <div class="flex items-center text-sm"><span class="w-20 text-gray-500">2026-06</span><div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:80%"></div></div><span class="font-medium text-gray-900">48</span></div>
-                        </div>
+                        <div style="height: 280px;"><canvas id="reportContractorsChart"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="grid lg-grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Leads by Category</h3>
+                        <div style="height: 280px;"><canvas id="leadsChart"></canvas></div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Rating Distribution</h3>
+                        <div style="height: 280px;"><canvas id="ratingChart"></canvas></div>
                     </div>
                 </div>
 
@@ -102,7 +103,7 @@
         </div>
     </div>
     <script>
-        function toggleUserMenu() { var menu = document.getElementById('userMenu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; } document.addEventListener('click', function(e) { if (!e.target.closest('.user-dropdown')) { var menu = document.getElementById('userMenu'); if (menu) menu.style.display = 'none'; } }); function toggleTheme() {
+        function toggleUserMenu() { var menu = document.getElementById('userMenu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; } document.addEventListener('click', function(e) { if (!e.target.closest('.user-dropdown')) { var menu = document.getElementById('userMenu'); if (menu) menu.style.display = 'none'; } }); function toggleSidebar() { var sb = document.querySelector('.sidebar'); sb.classList.toggle('open'); var ov = document.querySelector('.sidebar-overlay'); if (ov) ov.classList.toggle('active'); } function closeSidebar() { var sb = document.querySelector('.sidebar'); sb.classList.remove('open'); var ov = document.querySelector('.sidebar-overlay'); if (ov) ov.classList.remove('active'); } function toggleTheme() {
             const body = document.body;
             body.classList.toggle('dark');
             const isDark = body.classList.contains('dark');
@@ -118,6 +119,84 @@
                 if (btn) btn.innerHTML = '<i class="fas fa-sun"></i>';
             }
         })();
+    </script>
+    <script>
+        const isDark = document.body.classList.contains('dark');
+        const gridColor = isDark ? 'rgba(148,163,184,0.1)' : 'rgba(0,0,0,0.06)';
+        const textColor = isDark ? '#94a3b8' : '#6b7280';
+
+        new Chart(document.getElementById('reportUsersChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Users',
+                    data: [45, 62, 78, 95, 112, 101],
+                    backgroundColor: '#2563eb',
+                    borderRadius: 6,
+                    barThickness: 32
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: textColor } }, x: { grid: { display: false }, ticks: { color: textColor } } }
+            }
+        });
+
+        new Chart(document.getElementById('reportContractorsChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Contractors',
+                    data: [18, 27, 36, 45, 54, 48],
+                    backgroundColor: '#16a34a',
+                    borderRadius: 6,
+                    barThickness: 32
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: textColor } }, x: { grid: { display: false }, ticks: { color: textColor } } }
+            }
+        });
+
+        new Chart(document.getElementById('leadsChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Plumber', 'Electrician', 'Aircond', 'Handyman', 'Renovation', 'Cleaning'],
+                datasets: [{
+                    data: [245, 198, 165, 132, 95, 57],
+                    backgroundColor: ['#2563eb', '#16a34a', '#eab308', '#9333ea', '#ea580c', '#06b6d4'],
+                    borderWidth: 0,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: { legend: { position: 'right', labels: { color: textColor, padding: 12, usePointStyle: true, pointStyleWidth: 10 } } }
+            }
+        });
+
+        new Chart(document.getElementById('ratingChart'), {
+            type: 'polarArea',
+            data: {
+                labels: ['5 Stars', '4 Stars', '3 Stars', '2 Stars', '1 Star'],
+                datasets: [{
+                    data: [1850, 1240, 520, 180, 101],
+                    backgroundColor: ['rgba(34,197,94,0.7)', 'rgba(59,130,246,0.7)', 'rgba(234,179,8,0.7)', 'rgba(249,115,22,0.7)', 'rgba(239,68,68,0.7)'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'right', labels: { color: textColor, padding: 12, usePointStyle: true, pointStyleWidth: 10 } } },
+                scales: { r: { ticks: { display: false }, grid: { color: gridColor } } }
+            }
+        });
     </script>
 </body>
 </html>

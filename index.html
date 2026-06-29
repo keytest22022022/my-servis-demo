@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+        <aside class="sidebar w-64 bg-gray-900 text-white flex-shrink-0">
             <div class="p-4 border-b">
                 <h1 class="text-xl font-bold">BlueTreex</h1>
                 <p class="text-gray-400 text-xs">Admin Panel</p>
@@ -46,11 +47,13 @@
                 </a>
             </nav>
         </aside>
+        <div class="sidebar-overlay" onclick="closeSidebar()"></div>
 
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
             <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
-                <h2 class="text-lg font-semibold text-gray-800">Dashboard</h2>
+                <button class="menu-toggle text-gray-600 hover:text-gray-900" onclick="toggleSidebar()"><i class="fas fa-bars text-lg"></i></button>
+                
                 <div class="header-actions flex items-center gap-3">
                     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
                     <div class="user-dropdown">
@@ -111,50 +114,7 @@
                     <!-- Contractors by Category -->
                     <div class="bg-white rounded-lg shadow-sm p-6">
                         <h3 class="text-lg font-semibold text-gray-900 mb-4">Contractors by Category</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Plumber</span>
-                                <div class="flex items-center">
-                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:85%"></div></div>
-                                    <span class="text-sm font-medium text-gray-900">85</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Electrician</span>
-                                <div class="flex items-center">
-                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:72%"></div></div>
-                                    <span class="text-sm font-medium text-gray-900">72</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Aircond Service</span>
-                                <div class="flex items-center">
-                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:65%"></div></div>
-                                    <span class="text-sm font-medium text-gray-900">65</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Handyman</span>
-                                <div class="flex items-center">
-                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:58%"></div></div>
-                                    <span class="text-sm font-medium text-gray-900">58</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Renovation</span>
-                                <div class="flex items-center">
-                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:45%"></div></div>
-                                    <span class="text-sm font-medium text-gray-900">45</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Cleaning</span>
-                                <div class="flex items-center">
-                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-3"><div class="bg-blue-600 h-2 rounded-full" style="width:38%"></div></div>
-                                    <span class="text-sm font-medium text-gray-900">38</span>
-                                </div>
-                            </div>
-                        </div>
+                        <div style="height: 250px;"><canvas id="categoryChart"></canvas></div>
                     </div>
 
                     <!-- Recent Contractors -->
@@ -196,72 +156,34 @@
                 <!-- Registration Trends -->
                 <div class="grid lg-grid-cols-2 gap-6">
                     <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Users Registered (Last 30 Days)</h3>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-01</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:60%"></div></div>
-                                <span class="font-medium text-gray-900">12</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-02</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:80%"></div></div>
-                                <span class="font-medium text-gray-900">16</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-03</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:45%"></div></div>
-                                <span class="font-medium text-gray-900">9</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-04</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:100%"></div></div>
-                                <span class="font-medium text-gray-900">20</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-05</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:70%"></div></div>
-                                <span class="font-medium text-gray-900">14</span>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Users Registered</h3>
+                            <div class="flex gap-1">
+                                <button class="tab-btn active px-3 py-1 text-xs font-medium rounded-lg bg-blue-600 text-white" onclick="switchTab('users', 'daily', this)">Daily</button>
+                                <button class="tab-btn px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 text-gray-600" onclick="switchTab('users', 'monthly', this)">Monthly</button>
+                                <button class="tab-btn px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 text-gray-600" onclick="switchTab('users', 'yearly', this)">Yearly</button>
                             </div>
                         </div>
+                        <div style="height: 250px;"><canvas id="usersChart"></canvas></div>
                     </div>
 
                     <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Contractors Registered (Last 30 Days)</h3>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-01</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:50%"></div></div>
-                                <span class="font-medium text-gray-900">5</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-02</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:70%"></div></div>
-                                <span class="font-medium text-gray-900">7</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-03</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:30%"></div></div>
-                                <span class="font-medium text-gray-900">3</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-04</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:90%"></div></div>
-                                <span class="font-medium text-gray-900">9</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-20 text-gray-500">2026-06-05</span>
-                                <div class="flex-1 mx-3 bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width:60%"></div></div>
-                                <span class="font-medium text-gray-900">6</span>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Contractors Registered</h3>
+                            <div class="flex gap-1">
+                                <button class="tab-btn active px-3 py-1 text-xs font-medium rounded-lg bg-blue-600 text-white" onclick="switchTab('contractors', 'daily', this)">Daily</button>
+                                <button class="tab-btn px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 text-gray-600" onclick="switchTab('contractors', 'monthly', this)">Monthly</button>
+                                <button class="tab-btn px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 text-gray-600" onclick="switchTab('contractors', 'yearly', this)">Yearly</button>
                             </div>
                         </div>
+                        <div style="height: 250px;"><canvas id="contractorsChart"></canvas></div>
                     </div>
                 </div>
             </main>
         </div>
     </div>
     <script>
-        function toggleUserMenu() { var menu = document.getElementById('userMenu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; } document.addEventListener('click', function(e) { if (!e.target.closest('.user-dropdown')) { var menu = document.getElementById('userMenu'); if (menu) menu.style.display = 'none'; } }); function toggleTheme() {
+        function toggleUserMenu() { var menu = document.getElementById('userMenu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; } document.addEventListener('click', function(e) { if (!e.target.closest('.user-dropdown')) { var menu = document.getElementById('userMenu'); if (menu) menu.style.display = 'none'; } }); function toggleSidebar() { var sb = document.querySelector('.sidebar'); sb.classList.toggle('open'); var ov = document.querySelector('.sidebar-overlay'); if (ov) ov.classList.toggle('active'); } function closeSidebar() { var sb = document.querySelector('.sidebar'); sb.classList.remove('open'); var ov = document.querySelector('.sidebar-overlay'); if (ov) ov.classList.remove('active'); } function toggleTheme() {
             const body = document.body;
             body.classList.toggle('dark');
             const isDark = body.classList.contains('dark');
@@ -277,6 +199,95 @@
                 if (btn) btn.innerHTML = '<i class="fas fa-sun"></i>';
             }
         })();
+    </script>
+    <script>
+        const isDark = document.body.classList.contains('dark');
+        const gridColor = isDark ? 'rgba(148,163,184,0.1)' : 'rgba(0,0,0,0.06)';
+        const textColor = isDark ? '#94a3b8' : '#6b7280';
+
+        const chartData = {
+            users: {
+                daily: { labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], data: [12,16,9,20,14,18,11] },
+                monthly: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], data: [45,62,78,95,112,101] },
+                yearly: { labels: ['2021','2022','2023','2024','2025','2026'], data: [320,580,890,1120,1450,1234] }
+            },
+            contractors: {
+                daily: { labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], data: [5,7,3,9,6,8,4] },
+                monthly: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], data: [18,27,36,45,54,48] },
+                yearly: { labels: ['2021','2022','2023','2024','2025','2026'], data: [85,150,240,320,410,456] }
+            }
+        };
+
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Plumber', 'Electrician', 'Aircond', 'Handyman', 'Renovation', 'Cleaning'],
+                datasets: [{
+                    label: 'Contractors',
+                    data: [85, 72, 65, 58, 45, 38],
+                    backgroundColor: ['#2563eb','#16a34a','#eab308','#9333ea','#ea580c','#06b6d4'],
+                    borderRadius: 6,
+                    barThickness: 28
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: textColor } }, x: { grid: { display: false }, ticks: { color: textColor } } }
+            }
+        });
+
+        const usersChart = new Chart(document.getElementById('usersChart'), {
+            type: 'line',
+            data: {
+                labels: chartData.users.daily.labels,
+                datasets: [{
+                    label: 'Users',
+                    data: chartData.users.daily.data,
+                    borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)',
+                    fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#2563eb'
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: textColor } }, x: { grid: { display: false }, ticks: { color: textColor } } }
+            }
+        });
+
+        const contractorsChart = new Chart(document.getElementById('contractorsChart'), {
+            type: 'line',
+            data: {
+                labels: chartData.contractors.daily.labels,
+                datasets: [{
+                    label: 'Contractors',
+                    data: chartData.contractors.daily.data,
+                    borderColor: '#16a34a', backgroundColor: 'rgba(22,163,74,0.1)',
+                    fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#16a34a'
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: textColor } }, x: { grid: { display: false }, ticks: { color: textColor } } }
+            }
+        });
+
+        function switchTab(chartType, period, btn) {
+            const chart = chartType === 'users' ? usersChart : contractorsChart;
+            const d = chartData[chartType][period];
+            chart.data.labels = d.labels;
+            chart.data.datasets[0].data = d.data;
+            chart.update();
+
+            const tabs = btn.parentElement.querySelectorAll('.tab-btn');
+            tabs.forEach(function(t) {
+                t.classList.remove('active', 'bg-blue-600', 'text-white');
+                t.classList.add('bg-gray-100', 'text-gray-600');
+            });
+            btn.classList.add('active', 'bg-blue-600', 'text-white');
+            btn.classList.remove('bg-gray-100', 'text-gray-600');
+        }
     </script>
 </body>
 </html>
